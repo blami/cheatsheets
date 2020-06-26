@@ -1,6 +1,5 @@
 # Markdown
-This is the very basic cheatsheet for Github flavoured Markdown.
-
+Github flavoured Markdown cheatsheet.
 
 ## Headings
 ```

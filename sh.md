@@ -1,7 +1,5 @@
 # Shell
-
-This is cheatsheet for various shell operations; most should work both in Bash
-and Zsh.
+Shell cheatsheet (most should work in both Bash and Zsh).
 
 
 ## Redirections
