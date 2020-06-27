@@ -52,17 +52,17 @@ Following characters can be `\`-escaped: ``\`*_{}[]()#+-.!|``
 ## Blocks
 #### Code blocks
 ```
-''' bash
+&#96;&#96;&#96; bash
 for I in 1 2 3; do
     echo "$I Hello world"
 done
-'''
+&#96;&#96;&#96;
 ```
 
 #### Blockquotes
 ```
 > Blockquote
->> Double blockquote
+>> Nested blockquote
 ```
 
 
