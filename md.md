@@ -51,13 +51,14 @@ Following characters can be `\`-escaped: ``\`*_{}[]()#+-.!|``
 
 ## Blocks
 #### Code blocks
-```
-&#96;&#96;&#96; bash
+~~~
+``` bash
 for I in 1 2 3; do
     echo "$I Hello world"
 done
-&#96;&#96;&#96;
 ```
+~~~
+
 
 #### Blockquotes
 ```
