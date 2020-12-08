@@ -91,3 +91,14 @@ HTTP, HTTPs and RESTful cheatsheet.
 - `511` Network Authentication Required
 - `598` Network read timeout error
 - `599` Network connect timeout error
+
+
+## Headers
+### Response Headers
+- `ContentType: type` Media type of resource (e.g. `application/javascript`)
+- `Access-Control-Allow-Origin: origin` Allow/deny response sharing with origin
+- `Set-Cookie: name=value` Set client cookie name to value
+- `Warning: code agent text [date]` Information about possible problems
+
+For more information see [MDN HTTP Headers page][1]
+[1]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
