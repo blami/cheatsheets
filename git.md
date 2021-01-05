@@ -56,6 +56,15 @@ foo*                          # Ignore anything matching wildcard pattern
 
 
 ## Advanced
+#### Syncing Fork
+``` shell
+git add remote upstream ...   # Add upstream remote if not done yet
+git fetch upstream            # Fetch remote branches and commits
+git checkout master           # Switch to fork master
+git merge upstream/master     # Merge upstream master to fork master
+git push                      # Push fork back to origin
+```
+
 #### Stashing Changes
 Temporarily and locally store uncommited changes.
 ``` shell
