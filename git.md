@@ -46,7 +46,6 @@ git pull                      # Pull remote changes to local repository
 - `REV~[N]`         First or [Nth] generation of REV ancestor (`~3` is `^^^`)
 
 
-
 ## `.gitignore`
 ``` text
 /foo                          # Ignore foo in repository root only
@@ -54,9 +53,7 @@ git pull                      # Pull remote changes to local repository
 foo*                          # Ignore anything matching wildcard pattern
 ```
 
-
-## Advanced
-#### Syncing Fork
+## Syncing Fork
 ``` shell
 git add remote upstream ...   # Add upstream remote if not done yet
 git fetch upstream            # Fetch remote branches and commits
@@ -65,8 +62,8 @@ git merge upstream/master     # Merge upstream master to fork master
 git push                      # Push fork back to origin
 ```
 
-#### Stashing Changes
-Temporarily and locally store uncommited changes.
+## Stashing Changes
+Temporarily and local-only way to store uncommited changes.
 ``` shell
 git stash                     # Store any uncommited changes to stash
 git stash list                # List all stashed
@@ -75,30 +72,40 @@ git stash drop [stash@{N}]    # Discard topmost [or Nth] stashed change
 git stash pop [stash@{N}]     # Apply and drop topmost [or Nth] stashed change
 ```
 
-#### Cherrypicking
+## Cherry-Picking
 Take commit from one branch and apply to another.
 ``` shell
 git cherry-pick REV           # Take commit REV and apply to current branch
 git cherry-pick --no-commit REV # Don't commit change on current branch
 ```
 
-#### Rewriting History
-NOTE: History changes should be done carefully. Rewriting pushed history will
-afect any clones of repository.
+## Rewriting History
+History changes should be done carefully. Rewriting pushed history will affect
+any clones of repository.
 ``` shell
 git commit --amend [FILE...]  # Amend previous commit with current changes
 git rebase [BRANCH]           # Apply current branch commits ahead of BRANCH
 git rebase -i REV             # Interactive rebase (all commits from REV)
 git rebase -i HEAD~N --exec CMD # Exec CMD on last N commits (e.g. unit tests)
 ```
+
 Squash N commits in one
 ``` shell
-git rebase -i HEAD~N         # Leave first (p) and mark rest by (s), update 
-                             # commit message.
+git rebase -i HEAD~N          # Leave first (p) and mark rest by (s), update 
+                              # commit message.
 ```
-Remove FILE from history (eventually from --all branches of repository)
+
+Remove PATH(s) from history (PATHs-TO-REMOVE.txt is list of paths one per line)
+See: https://github.com/newren/git-filter-repo
 ``` shell
-git filter-branch --tree-filter [--all] 'rm -f FILE' HEAD
+git filter-repo --analyze
+git filter-repo --invert-paths --paths-from-file /tmp/PATHs-TO-REMOVE.txt
+```
+
+Synchronizing existing checkout with rewritten history upstream (per BRANCH)
+``` shell
+git checkout BRANCH
+git reset --hard origin/BRANCH
 ```
 
 #### Optimize Repository
